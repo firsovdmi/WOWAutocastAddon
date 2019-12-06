@@ -1,0 +1,19 @@
+﻿## Interface: 30300
+## Title: Autocast
+## Version: 1.2.1
+
+
+## Author: Firsovdmi
+
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+
+## X-AceForum: 2889
+## X-RelSite-WoWI: 5614
+
+## X-Credits: pudd (2.2 modifier fix), Speeddymon (fix for less than 4 tabs)
+
+## LoadManagers: SupplyAndDemand, AddonLoader, ForkliftGnome
+## X-S&D-Always: true
+
+Autocast.lua
