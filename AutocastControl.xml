@@ -56,28 +56,28 @@
            </Layer>
        </Layers>
        <Frames>
-           <Frame name="myTabPage1" hidden="false">
+           <Frame name="ControlTab" hidden="false">
                <Anchors>
                    <Anchor point="TOPLEFT"/>
                    <Anchor point="BOTTOMRIGHT"/>
                </Anchors>
                <Layers>
                    <Layer level="ARTWORK">
-                       <FontString inherits="GameFontNormal" text="My Frame 1">
-                           <Anchors>
-                               <Anchor point="TOPLEFT" relativeTo="$parent">
+						<Button inherits="UIPanelButtonTemplate" text="Reload">
+							<Size x="150" y="60"/>                         
+							<Anchor point="TOPLEFT" relativeTo="$parent">
                                    <Offset>
                                        <AbsDimension x="20" y="-30"/>
                                    </Offset>
                                </Anchor>
-                           </Anchors>
-                       </FontString>
+							<NormalFont style="GameFontNormalHuge"/>
+						</Button>
                    </Layer>
                </Layers>
                <Frames>
                </Frames> 
            </Frame>   
-           <Frame name="myTabPage2" hidden="true">
+           <Frame name="LogTab" hidden="true">
                <Anchors>
                    <Anchor point="TOPLEFT"/>
                    <Anchor point="BOTTOMRIGHT"/>
@@ -98,7 +98,7 @@
                <Frames>
                </Frames> 
            </Frame>
-           <Button name="$parentTab1" inherits="CharacterFrameTabButtonTemplate" id="1" text="My Tab 1">
+           <Button name="$parentTab1" inherits="CharacterFrameTabButtonTemplate" id="1" text="Управление">
                <Anchors>
                    <Anchor point="CENTER" relativePoint="BOTTOMLEFT">
                        <Offset>
@@ -109,12 +109,12 @@
                <Scripts>
                    <OnClick>
                        PanelTemplates_SetTab(AutocastControlFrame, 1);
-                       myTabPage1:Show();
-                       myTabPage2:Hide();
+                       ControlTab:Show();
+                       LogTab:Hide();
                    </OnClick>
                </Scripts>
            </Button>
-           <Button name="$parentTab2" inherits="CharacterFrameTabButtonTemplate" id="2" text="My Tab 2">
+           <Button name="$parentTab2" inherits="CharacterFrameTabButtonTemplate" id="2" text="Логи">
                <Anchors>
                    <Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT">
                        <Offset>
@@ -125,17 +125,25 @@
                <Scripts>
                    <OnClick>
                        PanelTemplates_SetTab(AutocastControlFrame, 2);
-                       myTabPage1:Hide();
-                       myTabPage2:Show();
+                       ControlTab:Hide();
+                       LogTab:Show();
                    </OnClick>
                </Scripts>
            </Button>
        </Frames>
        <Scripts>
            <OnLoad>
+               this.elapsed = 0;
                PanelTemplates_SetNumTabs(AutocastControlFrame, 2);
+               PanelTemplates_SetTab(AutocastControlFrame, 1);
 			   self:RegisterForDrag("LeftButton");
            </OnLoad>
+           <OnShow>
+               PlaySound("UChatScrollButton");
+               PanelTemplates_SetTab(AutocastControlFrame, 1);
+               ControlTab:Show()
+               LogTab:Hide()
+           </OnShow>
 <OnDragStart>self:StartMoving();</OnDragStart>
 <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
 

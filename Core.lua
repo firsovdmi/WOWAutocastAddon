@@ -1,15 +1,20 @@
 
 --local Autocast = LibStub("AceAddon-3.0"):NewAddon("Autocast", "AceConsole-3.0")
-
+local autocastControlFrameIsVisible=true
 local b = CreateFrame("Button", "ButtonDebug", UIParent, "UIPanelButtonTemplate")
 b:SetSize(80 ,22) -- width, height
 b:SetText("DEBUG")
 b:SetPoint("TOPRIGHT")
 b:SetScript("OnClick", function()
-AutocastControlFrame:Show()
+	if autocastControlFrameIsVisible then
+		AutocastControlFrame:Hide()
+	else
+		AutocastControlFrame:Show()
+	end
+	autocastControlFrameIsVisible= not autocastControlFrameIsVisible
 --SetBinding("ALT-1", "cast Благословение могущества");
 --SetBindingSpell("ALT-1", "Благословение могущества")
-SetBindingClick(KeyCode[1],"MyButton")
+--SetBindingClick(KeyCode[1],"MyButton")
 end)
 
 local b = CreateFrame("Button", "ButtonReload", UIParent, "UIPanelButtonTemplate")
