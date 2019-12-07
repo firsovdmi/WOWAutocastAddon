@@ -16,4 +16,6 @@
 ## LoadManagers: SupplyAndDemand, AddonLoader, ForkliftGnome
 ## X-S&D-Always: true
 
+Init.lua
+Core.lua
 Autocast.lua
