@@ -13,7 +13,7 @@
        </Size>
        <Anchors>
            <Anchor point="CENTER">
-               <Offset><AbsDimension x="-200" y="200"/></Offset>
+               <Offset><AbsDimension x="-300" y="200"/></Offset>
            </Anchor>
        </Anchors>
        <Backdrop
@@ -21,34 +21,34 @@
            edgeFile="Interface\DialogFrame\UI-DialogBox-Border"
            tile="true">
            <BackgroundInsets>
-               <AbsInset left="1" right="1" top="1" bottom="1"/>
+               <AbsInset left="3" right="3" top="3" bottom="3"/>
            </BackgroundInsets>
            <TileSize>
-               <AbsValue val="1"/>
+               <AbsValue val="10"/>
            </TileSize>
            <EdgeSize>
-               <AbsValue val="1"/>
+               <AbsValue val="10"/>
            </EdgeSize>
        </Backdrop>
        <Layers>
            <Layer level="ARTWORK">
-               <Texture name="myFrameHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
+               <Texture name="AutocastControlFrameHeader" file="Interface\DialogFrame\UI-DialogBox-Header">
                    <Size>
-                       <AbsDimension x="356" y="64"/>
+                       <AbsDimension x="394" y="50"/>
                    </Size>
                    <Anchors>
                        <Anchor point="TOP">
                            <Offset>
-                               <AbsDimension x="0" y="12"/>
+                               <AbsDimension x="0" y="1"/>
                            </Offset>
                        </Anchor>
                    </Anchors>
                </Texture>
-               <FontString inherits="GameFontNormal" text="My Frame">
+               <FontString inherits="GameFontNormal" text="AutocastControl">
                    <Anchors>
-                       <Anchor point="TOP" relativeTo="myFrameHeader">
+                       <Anchor point="TOP" relativeTo="AutocastControlFrameHeader">
                            <Offset>
-                               <AbsDimension x="0" y="-14"/>
+                               <AbsDimension x="0" y="-10"/>
                            </Offset>
                        </Anchor>
                    </Anchors>
@@ -133,17 +133,9 @@
        </Frames>
        <Scripts>
            <OnLoad>
-               this.elapsed = 0;
                PanelTemplates_SetNumTabs(AutocastControlFrame, 2);
-               PanelTemplates_SetTab(AutocastControlFrame, 1);
 			   self:RegisterForDrag("LeftButton");
            </OnLoad>
-           <OnShow>
-               PlaySound("UChatScrollButton");
-               PanelTemplates_SetTab(AutocastControlFrame, 1);
-               myTabPage1:Show()
-               myTabPage2:Hide()
-           </OnShow>
 <OnDragStart>self:StartMoving();</OnDragStart>
 <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
 
