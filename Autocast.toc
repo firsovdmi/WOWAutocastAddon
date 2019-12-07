@@ -19,3 +19,4 @@
 Init.lua
 Core.lua
 Autocast.lua
+AutocastControl.xml

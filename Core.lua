@@ -6,7 +6,7 @@ b:SetSize(80 ,22) -- width, height
 b:SetText("DEBUG")
 b:SetPoint("TOPRIGHT")
 b:SetScript("OnClick", function()
-
+AutocastControlFrame:Show()
 --SetBinding("ALT-1", "cast Благословение могущества");
 --SetBindingSpell("ALT-1", "Благословение могущества")
 SetBindingClick(KeyCode[1],"MyButton")
@@ -53,3 +53,12 @@ function RegistBind(actionType, unit, spell)
 	SetBindingClick(KeyCode[KeyCodeIndex],Button:GetName())
 	KeyCodeIndex=KeyCodeIndex + 1
 end
+
+local t = 5 -- do something 5 seconds from now
+local ft = CreateFrame("Frame")
+ft:SetScript("OnUpdate", function(self, elapsed)
+     t = t - elapsed
+     if t <= 0 then
+          -- do something
+     end
+end)
