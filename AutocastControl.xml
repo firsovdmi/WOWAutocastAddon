@@ -57,25 +57,27 @@
        </Layers>
        <Frames>
            <Frame name="ControlTab" hidden="false">
-               <Anchors>
-                   <Anchor point="TOPLEFT"/>
-                   <Anchor point="BOTTOMRIGHT"/>
-               </Anchors>
-               <Layers>
-                   <Layer level="ARTWORK">
-						<Button inherits="UIPanelButtonTemplate" text="Reload">
-							<Size x="150" y="60"/>                         
-							<Anchor point="TOPLEFT" relativeTo="$parent">
-                                   <Offset>
-                                       <AbsDimension x="20" y="-30"/>
-                                   </Offset>
-                               </Anchor>
-							<NormalFont style="GameFontNormalHuge"/>
-						</Button>
-                   </Layer>
-               </Layers>
-               <Frames>
-               </Frames> 
+  <Size x="200" y="200"/>
+  <Anchors>
+    <Anchor point="CENTER"/>
+  </Anchors>
+  <Frames>
+    <Button name="OnOffCastButton" inherits="UIPanelButtonTemplate" text="ON">
+      <Size x="120" y="21"/>
+      <Anchors>
+        <Anchor point="TOPLEFT">
+		   <Offset>
+			   <AbsDimension x="3" y="-30"/>
+		   </Offset>
+		</Anchor>
+      </Anchors>
+	  <Scripts>
+            <OnClick>
+                OnOffCast();
+            </OnClick>
+      </Scripts>
+    </Button>
+  </Frames>
            </Frame>   
            <Frame name="LogTab" hidden="true">
                <Anchors>

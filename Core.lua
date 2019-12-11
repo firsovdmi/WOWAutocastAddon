@@ -12,10 +12,17 @@ b:SetScript("OnClick", function()
 		AutocastControlFrame:Show()
 	end
 	autocastControlFrameIsVisible= not autocastControlFrameIsVisible
---SetBinding("ALT-1", "cast Благословение могущества");
---SetBindingSpell("ALT-1", "Благословение могущества")
---SetBindingClick(KeyCode[1],"MyButton")
 end)
+
+OnOffState=true
+function OnOffCast()
+	OnOffState= not OnOffState
+	if OnOffState then
+		OnOffCastButton:SetText("ON")
+	else
+		OnOffCastButton:SetText("OFF")
+	end
+end
 
 local b = CreateFrame("Button", "ButtonReload", UIParent, "UIPanelButtonTemplate")
 b:SetSize(80 ,22) -- width, height
