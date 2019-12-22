@@ -62,7 +62,7 @@
     <Anchor point="CENTER"/>
   </Anchors>
   <Frames>
-    <Button name="OnOffCastButton" inherits="UIPanelButtonTemplate" text="ON">
+    <Button name="OnOffCastButton" inherits="UIPanelButtonTemplate" text="Autocast ON">
       <Size x="120" y="21"/>
       <Anchors>
         <Anchor point="TOPLEFT">
@@ -86,11 +86,20 @@
                </Anchors>
                <Layers>
                    <Layer level="ARTWORK">
-                       <FontString inherits="GameFontNormal" text="My Frame 2">
+                       <FontString name="DebugText" inherits="GameFontNormal" text="My Frame 2">
                            <Anchors>
                                <Anchor point="TOPLEFT" relativeTo="$parent">
                                    <Offset>
                                        <AbsDimension x="20" y="-30"/>
+                                   </Offset>
+                               </Anchor>
+                           </Anchors>
+                       </FontString>
+                       <FontString name="CurrentActionText" inherits="GameFontNormal" text="rrrrr">
+                           <Anchors>
+                               <Anchor point="TOPLEFT" relativeTo="$parent">
+                                   <Offset>
+                                       <AbsDimension x="20" y="-40"/>
                                    </Offset>
                                </Anchor>
                            </Anchors>
