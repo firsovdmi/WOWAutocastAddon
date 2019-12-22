@@ -60,9 +60,6 @@ local function eventHandler(self, event, p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,
 	if event == "COMBAT_LOG_EVENT_UNFILTERED" then
 		CombatLogEventText(p12)		
 	end	
-	if event == "CURSOR_UPDATE" then
-		PrintDebug15Text(UnitName("mouseover"))		
-	end	
 end
 eventFrame:SetScript("OnEvent", eventHandler);
 
@@ -131,6 +128,7 @@ local currentTimeElapse=mainCycle
 local ft = CreateFrame("Frame")
 ft:SetScript("OnUpdate", function(self, elapsed)
      currentTimeElapse = currentTimeElapse - elapsed
+	 if OnOffState then UpdateCycle(elapsed) end
      if currentTimeElapse <= 0 then
 		if OnOffState then MainCycle() end
 		currentTimeElapse=mainCycle
